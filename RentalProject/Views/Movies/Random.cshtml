@@ -3,6 +3,21 @@
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var className = Model.Customer.Count > 1 ? "popular" : null;
+}
+<h2 class="@className">@Model.Movie.Name</h2>
 
-<h2>@Model.Movie.Name</h2>
-
+@if(Model.Customer.Count==0)
+{
+    <h5>No one rented this movie..</h5>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customer)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
