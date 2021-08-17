@@ -15,5 +15,9 @@ namespace RentalProject.Controllers
             var movie = new Movie() {Name = "Deadpool !!" };
             return View(movie);
         }
+        public ActionResult Edit(int Id)
+        {
+            return Content("Id = " +Id);
+        }
     }
 }
