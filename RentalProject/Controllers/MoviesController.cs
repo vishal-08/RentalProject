@@ -19,5 +19,9 @@ namespace RentalProject.Controllers
         {
             return Content("Id = " +Id);
         }
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year +"/" + month);
+        }
     }
 }
