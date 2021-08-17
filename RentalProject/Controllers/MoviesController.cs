@@ -36,5 +36,15 @@ namespace RentalProject.Controllers
         {
             return Content(year +"/" + month);
         }
+        public ActionResult Index()
+        {
+            var movie = new List<Movie> 
+            {
+                new Movie { Name = "Deadpool !!" },
+                new Movie { Name = "Iron Man !!" },
+                new Movie { Name = "Thor !!" },
+            };
+            return View(movie);
+        }
     }
 }
