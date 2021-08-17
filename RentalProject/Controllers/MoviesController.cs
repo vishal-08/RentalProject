@@ -1,4 +1,5 @@
 ﻿using RentalProject.Models;
+using RentalProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,17 @@ namespace RentalProject.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() {Name = "Deadpool !!" };
-            return View(movie);
+            var customer = new List<Customer>
+            {
+                new Customer {Name = "Amit"},
+                new Customer {Name = "Anuj"}
+            };
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customer = customer
+            };
+            return View(viewModel);
         }
         public ActionResult Edit(int Id)
         {
