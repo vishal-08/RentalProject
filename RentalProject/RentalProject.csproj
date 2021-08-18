@@ -149,6 +149,10 @@
     <Compile Include="Migrations\202108180832090_PopulatemembershipType.designer.cs">
       <DependentUpon>202108180832090_PopulatemembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108180846147_ApplyAnnotationtoCuatomer.cs" />
+    <Compile Include="Migrations\202108180846147_ApplyAnnotationtoCuatomer.designer.cs">
+      <DependentUpon>202108180846147_ApplyAnnotationtoCuatomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DBContext.cs" />
@@ -227,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108180832090_PopulatemembershipType.resx">
       <DependentUpon>202108180832090_PopulatemembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108180846147_ApplyAnnotationtoCuatomer.resx">
+      <DependentUpon>202108180846147_ApplyAnnotationtoCuatomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
