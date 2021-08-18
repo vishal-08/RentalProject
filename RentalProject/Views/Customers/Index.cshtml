@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RentalProject.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Any())
+{
+    <h5>No Customer Till now</h5>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Customer</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var customer in Model)
+            {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Detail", "Customers", new { Id = customer.Id }, null)</td>
+            </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+}
+
+
+
