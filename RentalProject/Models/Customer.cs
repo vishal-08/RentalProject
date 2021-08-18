@@ -10,5 +10,7 @@ namespace RentalProject.Models
         public int Id { get; set; }
 
         public String Name { get; set; }
+
+        public bool IsSubscribedToNewsLetter { get; set; }
     }
 }
