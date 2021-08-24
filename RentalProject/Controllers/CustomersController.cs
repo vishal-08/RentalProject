@@ -27,8 +27,8 @@ namespace RentalProject.Controllers
         }
         public ActionResult Detail(int Id)
         {
-           
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == Id);
+
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == Id);
             if (customer == null)
             {
                 return HttpNotFound();
