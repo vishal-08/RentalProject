@@ -1,6 +1,7 @@
 ﻿using RentalProject.Models;
 using RentalProject.ViewModels;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,22 +11,16 @@ namespace RentalProject.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
-        public ActionResult Random()
+        private DBContext _context;
+        public MoviesController()
         {
-            var movie = new Movie() {Name = "Deadpool !!" };
-            var customer = new List<Customer>
-            {
-                new Customer {Name = "Amit"},
-                new Customer {Name = "Anuj"}
-            };
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customer = customer
-            };
-            return View(viewModel);
+            _context = new DBContext();
         }
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+        
         public ActionResult Edit(int Id)
         {
             return Content("Id = " +Id);
@@ -38,13 +33,34 @@ namespace RentalProject.Controllers
         }
         public ActionResult Index()
         {
-            var movie = new List<Movie> 
-            {
-                new Movie { Name = "Deadpool !!" },
-                new Movie { Name = "Iron Man !!" },
-                new Movie { Name = "Thor !!" },
-            };
+            var movie = _context.Movies.Include(c => c.Genre).ToList();
+           
             return View(movie);
+        }
+        public ActionResult Detail(int Id)
+        {
+            var movies = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == Id);
+            if (movies == null)
+            {
+                return HttpNotFound();
+            }
+            return View();
+        }
+        //GET: Movies
+        public ActionResult Random()
+        {
+            var movie = new Movie() { Name = "Deadpool !!" };
+            var customer = new List<Customer>
+            {
+                new Customer {Name = "Amit"},
+                new Customer {Name = "Anuj"}
+            };
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customer = customer
+            };
+            return View(viewModel);
         }
     }
 }
