@@ -54,6 +54,20 @@ namespace RentalProject.Controllers
             }
             return View(customer);
         }
+        public ActionResult Edit(int Id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == Id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewModel = new NewCustomerViewModel 
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+        };
+            return View("New" , viewModel);
+        }
         //private IEnumerable<Customer> GetCustomers()
         //{
         //    return new List<Customer>
