@@ -33,18 +33,18 @@ namespace RentalProject.Controllers
         }
         public ActionResult Index()
         {
-            var movie = _context.Movies.Include(c => c.Genre).ToList();
+            var movie = _context.Movies.Include(m => m.Genre).ToList();
            
             return View(movie);
         }
         public ActionResult Detail(int Id)
         {
-            var movies = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == Id);
+            var movies = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
             if (movies == null)
             {
                 return HttpNotFound();
             }
-            return View();
+            return View(movies); //return in view
         }
         //GET: Movies
         public ActionResult Random()
