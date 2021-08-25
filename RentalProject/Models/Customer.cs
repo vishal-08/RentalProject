@@ -14,7 +14,7 @@ namespace RentalProject.Models
         [Required]
         [StringLength(255)]
         public String Name { get; set; }
-
+        [Display(Name = "Date Of Birth")]
         public DateTime? BirthDate { get; set; }
 
         public bool IsSubscribedToNewsLetter { get; set; }

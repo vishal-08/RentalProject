@@ -25,6 +25,11 @@ namespace RentalProject.Controllers
 
             return View(customer);
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
         public ActionResult Detail(int Id)
         {
 
