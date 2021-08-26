@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202108240909583_PopulateGenre.designer.cs">
       <DependentUpon>202108240909583_PopulateGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108261044144_MoviesValidationAdded.cs" />
+    <Compile Include="Migrations\202108261044144_MoviesValidationAdded.designer.cs">
+      <DependentUpon>202108261044144_MoviesValidationAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DBContext.cs" />
@@ -296,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108240909583_PopulateGenre.resx">
       <DependentUpon>202108240909583_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108261044144_MoviesValidationAdded.resx">
+      <DependentUpon>202108261044144_MoviesValidationAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
