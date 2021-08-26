@@ -69,7 +69,7 @@ namespace RentalProject.Controllers
         public ActionResult Edit(int Id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == Id);
-
+                
             if (customer == null)
                 return HttpNotFound();
 
